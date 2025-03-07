@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="XXXXXXXXXXX, Intranet, Ferramentas, Processos Internos, NTI, Manutenção">
+    <title>Ferramentas Utilitárias</title>
+
+  
+
+
+    <style>
+      /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8; /* Fundo mais claro e suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header moderno */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #ff4a4a, #fc0404); /* Gradiente mais suave */
+    color: #fff;
+    padding: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header nav a:hover {
+    color: #ffdd57;
+    transform: translateY(-3px);
+}
+
+/* Conteúdo principal */
+main {
+    margin-top: 120px;
+    padding: 40px 25px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 120px 20px 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #444;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #666;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #bbc404, transparent);
+    margin: 25px auto;
+    width: 60%;
+}
+
+/* Grid de botões moderno */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+    background: #f0f4f8;
+}
+
+.btn img, .btn i {
+    width: 70px;
+    height: auto;
+    margin-bottom: 15px;
+    color: #fc0404;
+    transition: color 0.3s ease;
+    justify-content: center;
+}
+
+.btn:hover img, .btn:hover i {
+    color: #ff4b5c; /* Mudança de cor no hover */
+}
+
+.btn p {
+    text-align: center;
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+    justify-content: center;
+}
+
+/* Footer moderno */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+footer a {
+    color: #fc0404;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #d80303;
+}
+
+/* Container com a bola e texto ao lado */
+.circle-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+.circle-container {
+    width: 220px;
+    height: 220px;
+    background-color: #fc0404;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.circle-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fc0404;
+}
+
+.circle-text-container .content {
+    max-width: 500px;
+    text-align: left;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    header nav {
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .row {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 20px;
+    }
+
+    .btn {
+        padding: 15px;
+    }
+
+    .circle-text-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .circle-container {
+        width: 180px;
+        height: 180px;
+        font-size: 22px;
+    }
+
+    .circle-text-container .content {
+        font-size: 16px;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">Intranet - XXXXXXXXXXX Prazer em Economizar!</div>
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="empresa.html">Empresa</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#manuais">Manuais</a>
+            <a href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">Site</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Ferramentas Utilitárias</h2>
+        <hr />
+
+        <h3>Processos Internos</h3>
+        <div class="row">
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Assistente Virtual NTI">
+                <img src="suportee.png" alt="AssistenteNTI" class="assistente-img">
+                <p>Assistente Virtual</p>
+                <p>NTI</p>
+            </a>
+            
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Sistema de Chamados NTI">
+                <i class="fa fa-desktop fa-5x"></i>
+                <p>Sistema de Chamados</p>
+                <p>NTI</p>
+            </a>
+            
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Sistema SLL CD">
+                <i class="fa fa-truck fa-5x"></i>
+                <p>Sistema SLL</p>
+                <p>CD</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Sistema de Chamados Manutenção">
+                <i class="fa fa-wrench fa-5x"></i>
+                <p>Sistema de Chamados</p>
+                <p>Manutenção</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Sistema de E-mail">
+                <i class="fa fa-envelope" style="font-size: 80px;"></i>
+
+                <p>Sistema de E-mail</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Receitas da confeitaria">
+                <i class="fa-solid fa-birthday-cake" style="font-size: 80px;"></i>
+                <p>Confeitaria</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Smarket Solutions">
+            <i class="fa fa-object-group fa-5x"></i>
+                <p>Smarket</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Smarket Solutions">
+                <i class="fa fa-gears fa-5x"></i>
+                    <p>VisualMix</p>
+            </a>
+            
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Sitef Web">
+                <i class="fa fa-credit-card-alt fa-5x"></i>
+                <p>Sitef Web</p>
+            </a>
+            
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Gerador de Assinatura">
+                <i class="fa fa-envelope fa-5x"></i>
+                <p>Gerador de Assinatura</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Controle de Ponto Senior">
+                <i class="fa fa-envelope fa-5x"></i>
+                <p>Controle de Ponto Senior</p>
+            </a>
+
+            <a href="https://www.google.com.br"  class="btn" role="button" aria-label="Horti-fruti">
+                <i class="fa fa-lemon fa-5x"></i>
+                <p>Horti-fruti</p>
+            </a>
+        </div>
+
+        <h3>Processos Externos</h3>
+        <hr />
+
+        <div class="row">
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Fsist">
+                <i class="fa fa-foursquare fa-5x"></i>
+                <p>Fsist</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Danfe Online">
+                <i class="fa fa-file-pdf fa-5x"></i>
+                <p>Danfe Online</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="eSocial">
+                <i class="fa fa-group fa-5x"></i>
+                <p>eSocial</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="NFSE Alegrete">
+                <i class="fa fa-file-pdf fa-5x"></i>
+                <p>NFSE Alegrete</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Correios">
+                <i class="fa fa-envelope fa-5x"></i>
+                <p>Correios</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="Webnet 2.0">
+                <i class="fa fa-file fa-5x"></i>
+                <p>Webnet 2.0</p>
+            </a>
+
+            <a href="https://www.google.com.br" class="btn" role="button" aria-label="DMcard">
+            <i class="fa fa-credit-card fa-5x"></i>
+                <p>DMcard</p>
+            </a>
+        </div>
+
+        
+    </main>
+   <!-- Container Redondo Grande com Texto ao lado -->
+   <div class="circle-text-container">
+    <div class="circle-container">
+        <!-- A imagem pode ser substituída por qualquer outra imagem -->
+        <img src="lojaa.jpeg" alt="Imagem ao lado">
+    </div>
+    <div class="content">
+        <h3>O que é Intranet?</h3>
+        <p>A intranet é uma rede de computadores privada que assenta sobre a suíte de protocolos da Internet, porém, de uso exclusivo de um determinado local, como, por exemplo, a rede de uma empresa, que só pode ser acessada pelos seus utilizadores ou colaboradores internos.</p>
+        <p>Apesar do seu uso interno, acessando aos dados corporativos, a intranet permite que computadores localizados numa filial, se conectados à internet com uma senha, acessem conteúdos que estejam na sua matriz. Ela cria um canal de comunicação direto entre a empresa e os seus funcionários/colaboradores, tendo um ganho significativo em termos de segurança.</p>
+        </div>
+</div>
+    <footer>
+        <p>&copy; 2025 XXXXXXXXXXX Supermercados | Todos os direitos reservados.</p>
+        <p style="color: #fc0404;">Designed by :Pastorini</p>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a> | 
+        <a href="termos-de-uso.html">Termos de Uso</a>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados, Contatos e Ramais (CA)</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .btn-custom {
+            background-color: #fc0404;
+            color: white;
+            font-size: 2rem;
+            padding: 15px 30px;
+            width: 45%; /* Reduzi a largura para caber dois botões lado a lado */
+            margin: 10px 2.5%; /* Margem para espaçamento entre os botões */
+            text-align: center;
+            display: inline-block; /* Botões em linha */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #bbc404;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 5px solid #bbc404;
+            padding-bottom: 10px;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+        .table-container {
+            display: none;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #bbc404;
+            color: white;
+        }
+        /* Header fixo */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fc0404;
+            color: #fff;
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+    
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 2cm; /* Alterado para mover mais para a esquerda */
+            white-space: nowrap;
+        }
+    
+        header nav {
+            display: flex;
+            justify-content: left;
+            gap: 50px;
+            flex-wrap: nowrap;
+            width: 40%;
+        }
+    
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            position: relative; /* Alterado de fixed para relative */
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            padding: 10px 0; /* Adiciona um pequeno padding para melhorar o visual */
+            background-color: #fff; /* Adiciona um fundo branco para evitar sobreposição */
+            z-index: 1000; /* Garante que o footer fique acima do conteúdo */
+        }
+    
+        .logo {
+            display: block;
+            margin: 20px auto;
+            max-width: 300px;
+            margin-top: 65px;  /* Move o logo para baixo em 3cm (aproximadamente 113px) */
+        }
+    
+        /* Adiciona padding ao main para evitar sobreposição com header e footer */
+        main {
+            padding-top: 80px; /* Ajuste conforme a altura do header */
+            padding-bottom: 120px; /* Ajuste maior para compensar o rodapé fixo */
+        }
+    
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+            }
+    
+            .logo-text {
+                margin-left: 1cm;
+            }
+    
+            .btn-custom {
+                width: 100%; /* Botões ocupam a largura total em telas menores */
+                margin: 10px 0; /* Remove a margem lateral */
+            }
+        }
+    
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+    
+            .logo-text {
+                margin-left: 0;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+    
+            header nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+    
+            header nav a {
+                font-size: 14px;
+            }
+    
+            .container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+    
+    <script>
+        function toggleTable(id) {
+            // Fecha todas as tabelas
+            var tableContainers = document.querySelectorAll('.table-container');
+            tableContainers.forEach(function(container) {
+                container.style.display = "none";
+            });
+
+            // Abre a tabela clicada
+            var tableContainer = document.getElementById(id);
+            if (tableContainer.style.display === "none") {
+                tableContainer.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">Intranet - XXXXXXXXXXX Prazer em economizar!</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="empresa.html">Empresa</a>
+            <a href="contatos.html">Contatos</a>
+            <a href="https://support.google.com/accessibility/answer/1631886?hl=pt">Manuais</a>
+            <a href="https://www.google.com.br" target="_blank">Site</a>
+        </nav>
+    </header>
+    <main class="container">
+        <img src="../imagens/LogoColor.png" alt="Logo " class="logo">
+
+        <div class="section-title">
+            Dados, Contatos e Ramais (CA)
+        </div>
+
+ <!-- Botões lado a lado -->
+ <div>
+    <button class="btn-custom" onclick="toggleTable('table-container')">Dados e Contatos</button>
+    <button class="btn-custom" onclick="toggleTable('ramais-container')">Ramais</button>
+</div>
+        <div id="table-container" class="table-container">
+            <td>Dados e Contatos das Lojas</td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Filial</th>
+                        <th>CNPJ</th>
+                        <th>IE</th>
+                        <th>IM</th>
+                        <th>Endereço</th>
+                        <th>Cidade</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                    </tr>
+                    <tr>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                    </tr>
+                    <tr>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                    </tr>
+                    <tr>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                    </tr>
+                    <tr>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                        <td>-------</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+
+        <div id="ramais-container" class="table-container">
+            <td>Lista de Ramais</td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ramal</th>
+                        <th>Setor</th>
+                        <th>Funcionários</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                        <tr><td>--</td><td>RH - SESMT</td><td>Nome1, Nome2, Nome3</td></tr>
+<tr><td>--</td><td>Contas a Receber</td><td>Nome4, Nome5, Nome6</td></tr>
+<tr><td>--</td><td>Recepção</td><td>Nome7</td></tr>
+<tr><td>--</td><td>Expedição</td><td>Nome8, Nome9, Nome10, Nome11, Nome12</td></tr>
+<tr><td>--</td><td>Contas a Pagar</td><td>Nome13, Nome14, Nome15, Nome16</td></tr>
+<tr><td>--</td><td>Fiscal</td><td>Nome17, Nome18, Nome19, Nome20, Nome21</td></tr>
+<tr><td>--</td><td>Marketing</td><td>Nome22, Nome23, Nome24, Nome25</td></tr>
+<tr><td>--</td><td>Compras Não-Revenda</td><td>Nome26, Nome27, Nome28</td></tr>
+<tr><td>--</td><td>Trocas/PBL</td><td>Nome29, Nome30, Nome31 / Nome32</td></tr>
+<tr><td>--</td><td>Guarita</td><td>Nome33</td></tr>
+<tr><td>--</td><td>Reabastecimento</td><td>Nome34, Nome35</td></tr>
+<tr><td>--</td><td>RH</td><td>Nome36, Nome37</td></tr>
+<tr><td>--</td><td>Planejamento</td><td>Nome38, Nome39, Nome40</td></tr>
+<tr><td>--</td><td>Contabilidade</td><td>Nome41, Nome42, Nome43</td></tr>
+<tr><td>--</td><td>RH</td><td>Nome44</td></tr>
+<tr><td>--</td><td>Contabilidade</td><td>Nome45, Nome46</td></tr>
+<tr><td>--</td><td>Comercial</td><td>Nome47, Nome48, Nome49, Nome50, Nome51, Nome52</td></tr>
+<tr><td>--</td><td>SLL</td><td>Nome53</td></tr>
+<tr><td>--</td><td>RH - Recrutamento</td><td>Nome54, Nome55, Nome56, Nome57, Nome58</td></tr>
+<tr><td>--</td><td>NTI</td><td>Nome59, Nome60, Nome61, Nome62, Nome63, Nome64, Nome65, Nome66, Nome67, Nome68, Nome69, Nome70, Nome71, Nome72</td></tr>
+<tr><td>--</td><td>Comercial</td><td>Nome73, Nome74, Nome75, Nome76</td></tr>
+<tr><td>--</td><td>Manutenção</td><td>Nome77, Nome78, Nome79, Nome80, Nome81</td></tr>
+<tr><td>--</td><td>Controladoria</td><td>Nome82, Nome83, Nome84, Nome85, Nome86, Nome87</td></tr>
+<tr><td>--</td><td>Abastecimento Supply</td><td>Nome88, Nome89</td></tr>
+<tr><td>--</td><td>Comercial</td><td>Nome90, Nome91, Nome92</td></tr>
+<tr><td>--</td><td>Frota</td><td>Nome93, Nome94</td></tr>
+<tr><td>--</td><td>Inbound/Central/Cadastro</td><td>Nome95, Nome96, Nome97, Nome98</td></tr>
+<tr><td>--</td><td>Recebimento</td><td>Nome99, Nome100</td></tr>
+<tr><td>--</td><td>Pricing</td><td>Nome101, Nome102, Nome103</td></tr>
+<tr><td>--</td><td>Estoque</td><td>Nome104</td></tr>
+<tr><td>--</td><td>RH - DP</td><td>Nome105</td></tr>
+<tr><td>--</td><td>E-commerce</td><td>Nome106, Nome107, Nome108, Nome109</td></tr>
+<tr><td>--</td><td>PBU</td><td>--</td></tr>
+<tr><td>--</td><td>Almoxarifado</td><td>--</td></tr>
+<tr><td>--</td><td>CD</td><td>Nome110, Nome111</td></tr>
+
+                    </tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Empresa..... | Todos os direitos reservados.</p>
+        <p style="color: #fc0404;">Designed by :Pastorini</p>
+    </footer>
+</body>
+</html>
